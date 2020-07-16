@@ -1,0 +1,59 @@
+drop database if exists GoodCle;
+create database GoodCle;
+
+drop table if exists users;
+create table users
+ (user_id serial primary key, 
+ user_name text not null, 
+ mail_adress text not null, 
+ user_icon Integer not null, 
+ register_date Timestamp not null, 
+ status Integer not null);
+
+drop table if exists status_memos;
+create table status_memos
+ (status_id serial primary key, 
+ status_name text not null);
+
+drop table if exists user_icons;
+create table user_icons
+ (icon_id serial primary key, 
+ icon_image_path text not null);
+
+drop table if exists passwords;
+create table passwords
+ (password_id serial primary key, 
+ mail_adress text not null, 
+ password text not null, 
+ register_date Timestamp not null);
+
+drop table if exists Introduction_movies;
+create table Introduction_movies
+ (Introduction_movies_id serial primary key, 
+ user_id Integer not null, 
+ date Timestamp not null, 
+ api_id Integer not null,
+ sentence text not null,
+ disclosure_id Integer not null,
+ partner_id Integer not null,
+ status_id Integer not null,
+ update_date Timestamp not null,
+ version Integer not null);
+ 
+drop table if exists disclosure_memos;
+create table disclosure_memos
+ (disclosure_id serial primary key, 
+ status_name text not null);
+
+drop table if exists favorites;
+create table favorites
+ (favorite_id serial primary key, 
+ api_id Integer not null,
+ user_id Integer not null,
+ watch_id Integer not null,
+ status_id Integer not null);
+
+drop table if exists watches;
+create table watches
+ (watch_id serial primary key, 
+ watch_name text not null);
